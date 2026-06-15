@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ферма «Мычалово» — Молочная ферма</title>
   <link rel="stylesheet" href="css/style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo"><span>🐄</span> Ферма «Мычалово»</a>
+    <a href="index.html" class="logo"><i class="ph-fill ph-cow"></i> Ферма «Мычалово»</a>
     <nav>
       <a href="index.html" class="active">Главная</a>
       <a href="products.html">Продукты</a>
@@ -22,7 +23,7 @@
 <main>
   <!-- HERO -->
   <section class="hero">
-    <span class="hero-emoji">🐄</span>
+    <i class="ph-fill ph-cow hero-emoji"></i>
     <h1>Молоко с душой и мелодией</h1>
     <p>Наши коровы доятся под классическую музыку — это не шутка. Моцарт, Шопен и немного джаза делают молоко вкуснее.</p>
     <a href="products.html" class="btn">Наши продукты</a>
@@ -34,22 +35,22 @@
     <p class="section-subtitle">Мы не просто ферма — мы философия натурального молока</p>
     <div class="features">
       <div class="feature-card">
-        <div class="icon">🎵</div>
+        <div class="icon"><i class="ph-fill ph-music-notes"></i></div>
         <h3>Музыкальная дойка</h3>
         <p>Коровы слушают классику во время дойки. Учёные доказали: так молоко жирнее и вкуснее.</p>
       </div>
       <div class="feature-card">
-        <div class="icon">🌿</div>
+        <div class="icon"><i class="ph-fill ph-leaf"></i></div>
         <h3>Экологично</h3>
         <p>Никакой химии. Только трава, чистый воздух и хорошее настроение у Зорьки и Дашки.</p>
       </div>
       <div class="feature-card">
-        <div class="icon">🥛</div>
+        <div class="icon"><i class="ph-fill ph-drop"></i></div>
         <h3>Свежее каждый день</h3>
         <p>Утренняя дойка — утренняя доставка. Молоко попадает к вам в тот же день.</p>
       </div>
       <div class="feature-card">
-        <div class="icon">🏡</div>
+        <div class="icon"><i class="ph-fill ph-house"></i></div>
         <h3>Семейная ферма</h3>
         <p>Мы работаем с 1998 года. Три поколения одной семьи, которая любит своё дело.</p>
       </div>
@@ -59,7 +60,7 @@
   <!-- MUSIC BLOCK -->
   <div class="section">
     <div class="music-block">
-      <span class="music-notes">🎶</span>
+      <i class="ph-fill ph-music-note music-notes"></i>
       <h2>Моцарт для Зорьки</h2>
       <p>
         Исследования показывают, что коровы, слушающие медленную музыку, дают на 3% больше молока.
@@ -75,26 +76,30 @@
   <!-- SLIDER -->
   <div class="section">
     <h2 class="section-title">Жизнь на ферме</h2>
-    <p class="section-subtitle">Фотографии наших коров и производства</p>
+    <p class="section-subtitle">Моменты из жизни наших коров и производства</p>
     <div class="slider-container">
       <div class="slider-track">
         <div class="slide" style="background: #f0f8ec;">
-          🐄🌅<br>Утро на ферме — самое тихое время перед дойкой
+          <i class="ph-fill ph-sun" style="font-size:3rem; color: #f59e0b; display:block; margin-bottom:0.5rem;"></i>
+          Утро на ферме — самое тихое время перед дойкой
         </div>
         <div class="slide" style="background: #fdf3e3;">
-          🎻🐄<br>Зорька слушает Вивальди. Удой вырос на 12% с прошлого месяца
+          <i class="ph-fill ph-violin" style="font-size:3rem; color: #6b4226; display:block; margin-bottom:0.5rem;"></i>
+          Зорька слушает Вивальди. Удой вырос на 12% с прошлого месяца
         </div>
         <div class="slide" style="background: #e8f4fd;">
-          🥛✨<br>Свежее молоко разливается по бутылям каждое утро в 6:00
+          <i class="ph-fill ph-jar" style="font-size:3rem; color: #3a7d44; display:block; margin-bottom:0.5rem;"></i>
+          Свежее молоко разливается по бутылям каждое утро в 6:00
         </div>
         <div class="slide" style="background: #fce4ec;">
-          🧀🌿<br>Творог созревает в погребе 12 часов — никакой спешки
+          <i class="ph-fill ph-clock" style="font-size:3rem; color: #e57373; display:block; margin-bottom:0.5rem;"></i>
+          Творог созревает в погребе 12 часов — никакой спешки
         </div>
       </div>
     </div>
     <div class="slider-btns">
-      <button class="slider-btn" id="prev-slide">‹</button>
-      <button class="slider-btn" id="next-slide">›</button>
+      <button class="slider-btn" id="prev-slide"><i class="ph ph-caret-left"></i></button>
+      <button class="slider-btn" id="next-slide"><i class="ph ph-caret-right"></i></button>
     </div>
   </div>
 
@@ -104,18 +109,22 @@
       <h2 class="section-title" style="margin-bottom: 2rem;">Ферма в цифрах</h2>
       <div class="counters">
         <div class="counter-item">
+          <i class="ph-fill ph-cow" style="font-size:2rem; color: var(--green); display:block; margin-bottom:0.3rem;"></i>
           <div class="counter-num" data-target="47" data-suffix="">0</div>
           <div class="counter-label">Коров на ферме</div>
         </div>
         <div class="counter-item">
+          <i class="ph-fill ph-calendar" style="font-size:2rem; color: var(--green); display:block; margin-bottom:0.3rem;"></i>
           <div class="counter-num" data-target="26" data-suffix="">0</div>
           <div class="counter-label">Лет работаем</div>
         </div>
         <div class="counter-item">
+          <i class="ph-fill ph-drop" style="font-size:2rem; color: var(--green); display:block; margin-bottom:0.3rem;"></i>
           <div class="counter-num" data-target="1200" data-suffix="">0</div>
           <div class="counter-label">Литров молока в день</div>
         </div>
         <div class="counter-item">
+          <i class="ph-fill ph-smiley" style="font-size:2rem; color: var(--green); display:block; margin-bottom:0.3rem;"></i>
           <div class="counter-num" data-target="340" data-suffix="">0</div>
           <div class="counter-label">Довольных клиентов</div>
         </div>
@@ -125,16 +134,20 @@
 </main>
 
 <footer>
-  <p>🐄 Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</p>
+  <p><i class="ph-fill ph-cow"></i> Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</p>
 </footer>
 
-<button id="back-to-top" title="Наверх">↑</button>
+<button id="back-to-top" title="Наверх"><i class="ph ph-arrow-up"></i></button>
 
 <style>
   @keyframes slideIn {
     from { opacity: 0; transform: translateX(30px); }
     to { opacity: 1; transform: translateX(0); }
   }
+  .logo i, .hero-emoji { font-size: 1.6rem; }
+  .hero-emoji { font-size: 5rem; display: block; margin-bottom: 1rem; animation: float 3s ease-in-out infinite; }
+  .icon i { font-size: 2.5rem; }
+  .music-notes { font-size: 2.5rem; animation: dance 1s ease-in-out infinite alternate; display: inline-block; }
 </style>
 <script src="js/main.js"></script>
 </body>

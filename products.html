@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Продукты — Ферма «Мычалово»</title>
   <link rel="stylesheet" href="css/style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo"><span>🐄</span> Ферма «Мычалово»</a>
+    <a href="index.html" class="logo"><i class="ph-fill ph-cow"></i> Ферма «Мычалово»</a>
     <nav>
       <a href="index.html">Главная</a>
       <a href="products.html" class="active">Продукты</a>
@@ -34,7 +35,7 @@
     <div class="products-grid" id="products-grid">
 
       <div class="product-card" data-category="dairy">
-        <div class="product-img">🥛</div>
+        <div class="product-img"><i class="ph-fill ph-jar"></i></div>
         <div class="product-info">
           <h3>Молоко цельное</h3>
           <p>3.7% жирности. Утренняя дойка, пастеризованное. Зорька постаралась.</p>
@@ -44,7 +45,7 @@
       </div>
 
       <div class="product-card" data-category="fermented">
-        <div class="product-img">🧀</div>
+        <div class="product-img"><i class="ph-fill ph-package"></i></div>
         <div class="product-info">
           <h3>Творог домашний</h3>
           <p>9% жирности. Созревает 12 часов в погребе. Без консервантов.</p>
@@ -54,7 +55,7 @@
       </div>
 
       <div class="product-card" data-category="fermented">
-        <div class="product-img">🥄</div>
+        <div class="product-img"><i class="ph-fill ph-bowl-food"></i></div>
         <div class="product-info">
           <h3>Сметана густая</h3>
           <p>20% жирности. Такая густая, что ложка стоит. Проверено.</p>
@@ -64,7 +65,7 @@
       </div>
 
       <div class="product-card" data-category="dairy">
-        <div class="product-img">🧈</div>
+        <div class="product-img"><i class="ph-fill ph-squares-four"></i></div>
         <div class="product-info">
           <h3>Сливочное масло</h3>
           <p>82.5% жирности. Настоящее сливочное масло, как у бабушки.</p>
@@ -74,7 +75,7 @@
       </div>
 
       <div class="product-card" data-category="fermented">
-        <div class="product-img">🥛</div>
+        <div class="product-img"><i class="ph-fill ph-drop"></i></div>
         <div class="product-info">
           <h3>Кефир живой</h3>
           <p>Настоящий живой кефир на молочнокислых бактериях. 3 дня хранения.</p>
@@ -84,7 +85,7 @@
       </div>
 
       <div class="product-card" data-category="dairy">
-        <div class="product-img">🍦</div>
+        <div class="product-img"><i class="ph-fill ph-swirl"></i></div>
         <div class="product-info">
           <h3>Сливки 33%</h3>
           <p>Для взбивания, кофе или просто так. Нежные и ароматные.</p>
@@ -100,7 +101,7 @@
 <!-- MODAL -->
 <div class="modal-overlay" id="order-modal">
   <div class="modal">
-    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🐄</div>
+    <i class="ph-fill ph-cow" style="font-size: 3rem; color: var(--green); display:block; margin-bottom: 0.5rem;"></i>
     <h2>Подтвердите заказ</h2>
     <p>Вы заказываете: <strong id="modal-product-name"></strong></p>
     <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: #888;">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
@@ -112,19 +113,19 @@
 </div>
 
 <footer>
-  <p>🐄 Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</p>
+  <p><i class="ph-fill ph-cow"></i> Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</p>
 </footer>
 
-<button id="back-to-top" title="Наверх">↑</button>
+<button id="back-to-top" title="Наверх"><i class="ph ph-arrow-up"></i></button>
 
 <style>
   @keyframes slideIn {
     from { opacity: 0; transform: translateX(30px); }
     to { opacity: 1; transform: translateX(0); }
   }
-  .product-card.hidden {
-    display: none;
-  }
+  .logo i { font-size: 1.6rem; }
+  .product-img i { font-size: 5rem; color: var(--green); }
+  .product-card.hidden { display: none; }
   .filter-btn.active-filter {
     background-color: var(--green) !important;
     color: white !important;
@@ -133,7 +134,6 @@
 
 <script src="js/main.js"></script>
 <script>
-  // Filter logic
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.product-card');
 
@@ -152,7 +152,6 @@
     });
   });
 
-  // Set first filter as active
   filterBtns[0].classList.add('active-filter');
 </script>
 </body>
