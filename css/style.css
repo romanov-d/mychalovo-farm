@@ -80,7 +80,7 @@ header.hero-page.scrolled .logo { color: var(--black); }
 
 .logo i { font-size: 1.3rem; }
 /* цветная корова в лого */
-.logo .logo-cow { color: #c8722a; }
+.logo .logo-cow { color: inherit; }
 
 nav {
   display: flex;
