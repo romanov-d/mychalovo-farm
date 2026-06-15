@@ -11,119 +11,93 @@
 
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo"><i class="ph-fill ph-cow"></i> Ферма «Мычалово»</a>
+    <a href="index.html" class="logo"><i class="ph-fill ph-cow"></i> Мычалово</a>
     <nav>
       <a href="index.html">Главная</a>
       <a href="products.html">Продукты</a>
       <a href="news.html" class="active">Новости</a>
+      <a href="news.html" class="nav-contact">Написать нам</a>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="section">
-    <h1 class="section-title">Новости фермы</h1>
-    <p class="section-subtitle">Здесь мы рассказываем о жизни коров, урожае и музыкальных предпочтениях Зорьки</p>
+    <p class="section-label">Новости</p>
+    <h1 class="section-title">Жизнь фермы</h1>
+    <p class="section-subtitle">Рассказываем о коровах, урожае и музыкальных предпочтениях Зорьки</p>
 
     <!-- CLOCK -->
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <div style="background: var(--green); color: white; display: inline-block; padding: 1rem 2.5rem; border-radius: 12px; font-size: 2.5rem; font-family: monospace; letter-spacing: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
-        <span id="farm-clock">00:00:00</span>
-      </div>
-      <div style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Текущее время на ферме</div>
+    <div class="clock-wrap">
+      <div class="clock-display"><span id="farm-clock">00:00:00</span></div>
+      <div class="clock-label">Текущее время на ферме</div>
     </div>
 
     <!-- NEWS GRID -->
     <div class="news-grid">
-
       <div class="news-card">
         <div class="news-date">12 декабря 2024</div>
         <h3><i class="ph-fill ph-music-notes"></i> Зорька полюбила Шопена</h3>
-        <p>После смены плейлиста на фортепианные ноктюрны Шопена, надои Зорьки выросли на 8%. Ветеринар в недоумении, но доволен. Теперь по вечерам — только Шопен.</p>
+        <p>После смены плейлиста на фортепианные ноктюрны Шопена надои Зорьки выросли на 8%. Ветеринар в недоумении, но доволен. Теперь по вечерам — только Шопен.</p>
       </div>
-
       <div class="news-card">
         <div class="news-date">5 декабря 2024</div>
         <h3><i class="ph-fill ph-cow"></i> Пополнение в стаде!</h3>
         <p>На ферме родился телёнок. Назвали Бетховен — в честь великого композитора. Мама и малыш чувствуют себя отлично. Принимаем поздравления.</p>
       </div>
-
       <div class="news-card">
         <div class="news-date">28 ноября 2024</div>
         <h3><i class="ph-fill ph-trophy"></i> Победа на областной ярмарке</h3>
-        <p>Наш творог занял первое место в категории «Домашние молочные продукты» на областной ярмарке. Судьи отметили необычный вкус и спросили про секрет — мы рассказали про музыку.</p>
+        <p>Наш творог занял первое место в категории «Домашние молочные продукты». Судьи спросили про секрет — мы рассказали про музыку.</p>
       </div>
-
       <div class="news-card">
         <div class="news-date">15 ноября 2024</div>
         <h3><i class="ph-fill ph-snowflake"></i> Зима на носу — готовимся</h3>
-        <p>Утеплили коровник, закупили дополнительные тюки сена. Поставили второй динамик — чтобы Моцарт был слышен в дальнем стойле. Коровам комфортно.</p>
+        <p>Утеплили коровник, закупили сено. Поставили второй динамик — чтобы Моцарт был слышен в дальнем стойле. Коровам комфортно.</p>
       </div>
-
       <div class="news-card">
         <div class="news-date">3 ноября 2024</div>
         <h3><i class="ph-fill ph-jar"></i> Новинка: сливки 33%</h3>
         <p>По многочисленным просьбам запускаем сливки для взбивания. Жирность 33%, вкус — как в детстве у бабушки. Доступны для заказа с 10 ноября.</p>
       </div>
-
       <div class="news-card">
         <div class="news-date">20 октября 2024</div>
         <h3><i class="ph-fill ph-lightning"></i> Эксперимент с рок-музыкой провалился</h3>
-        <p>Мы попробовали включить AC/DC в обеденное время. Дашка начала нервно мычать, Зорька уронила подойник. Вернулись к классике. Рок — не для коров.</p>
+        <p>Мы попробовали включить AC/DC в обеденное время. Дашка начала нервно мычать, Зорька уронила подойник. Вернулись к классике.</p>
       </div>
-
-    </div>
-  </div>
-
-  <!-- FORM -->
-  <div class="section" style="padding-top: 0;">
-    <div class="form-section">
-      <h2><i class="ph-fill ph-envelope-simple"></i> Напишите нам</h2>
-      <p style="text-align:center; color:#888; margin-bottom: 1.5rem; font-size: 0.9rem;">
-        Вопросы, заказы, предложения — пишите. Отвечаем быстро (пока не пошли кормить коров).
-      </p>
-      <form id="subscribe-form" novalidate>
-        <div class="form-group">
-          <label for="sub-name">Ваше имя</label>
-          <input type="text" id="sub-name" placeholder="Иван Петров" />
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="sub-email">Email</label>
-          <input type="email" id="sub-email" placeholder="ivan@example.com" />
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="sub-message">Сообщение</label>
-          <textarea id="sub-message" rows="4" placeholder="Хочу заказать молоко каждую пятницу..."></textarea>
-          <div class="form-error"></div>
-        </div>
-        <button type="submit" class="btn btn-green" style="width: 100%;">
-          <i class="ph ph-paper-plane-tilt"></i> Отправить
-        </button>
-        <div class="form-success" id="form-success">
-          <i class="ph-fill ph-check-circle"></i> Сообщение отправлено! Ответим в течение дня.
-        </div>
-      </form>
     </div>
   </div>
 </main>
 
+<!-- FORM — тёмный блок с фото фона -->
+<div class="form-section-wrap">
+  <img src="img/field.jpg" alt="Поле" class="form-bg" onerror="this.style.display='none'">
+  <div class="form-section-inner">
+    <h2>Напишите нам</h2>
+    <form id="subscribe-form" novalidate>
+      <input type="text" id="sub-name" class="form-field" placeholder="Ваше имя" />
+      <div class="form-error" id="err-name"></div>
+      <input type="email" id="sub-email" class="form-field" placeholder="Email" />
+      <div class="form-error" id="err-email"></div>
+      <textarea id="sub-message" class="form-field" rows="4" placeholder="Хочу заказать молоко каждую пятницу..."></textarea>
+      <div class="form-error" id="err-msg"></div>
+      <button type="submit" class="btn btn-white" style="width: 100%; justify-content: center;">
+        Отправить <i class="ph ph-paper-plane-tilt"></i>
+      </button>
+      <div class="form-success" id="form-success">
+        <i class="ph-fill ph-check-circle"></i> Сообщение отправлено! Ответим в течение дня.
+      </div>
+    </form>
+  </div>
+</div>
+
 <footer>
-  <p><i class="ph-fill ph-cow"></i> Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</p>
+  <i class="ph-fill ph-cow"></i>
+  <span>Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</span>
 </footer>
 
 <button id="back-to-top" title="Наверх"><i class="ph ph-arrow-up"></i></button>
 
-<style>
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  .logo i { font-size: 1.6rem; }
-  .news-card h3 i { font-size: 1rem; margin-right: 0.3rem; }
-  .form-section h2 i { font-size: 1.4rem; margin-right: 0.3rem; }
-</style>
 <script src="js/main.js"></script>
 </body>
 </html>
