@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<header>
+<header id="main-header">
   <div class="header-inner">
     <a href="index.html" class="logo"><i class="ph-fill ph-cow"></i> Мычалово</a>
     <nav>
@@ -25,27 +25,25 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="img/hero.jpg" alt="Корова на поле" class="hero-bg" onerror="this.style.display='none'">
+    <img src="img/hero_bg.png" alt="Корова на поле" class="hero-bg">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Свежие молочные продукты — с фермы прямо к вам</h1>
-      <div class="hero-sub">
+      <h1 class="hero-title">Свежие молочные продукты с фермы прямо к вам</h1>
+      <div class="hero-card">
         <p>Молоко, творог, сметана и масло от коров, которых доят под классическую музыку</p>
         <a href="products.html" class="btn btn-white">Смотреть продукты <i class="ph ph-arrow-right"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
+  <!-- WHY -->
   <div class="section">
-    <p class="section-label">Почему мы</p>
     <h2 class="section-title">Почему «Мычалово»?</h2>
     <p class="section-subtitle">Три причины выбрать нашу ферму</p>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-card-img">
-          <img src="img/why1.jpg" alt="Ферма" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <i class="ph-fill ph-barn" style="display:none"></i>
+          <img src="img/slide_morning.png" alt="Ферма">
         </div>
         <div class="why-card-body">
           <div class="why-num">01</div>
@@ -55,8 +53,7 @@
       </div>
       <div class="why-card">
         <div class="why-card-img">
-          <img src="img/why2.jpg" alt="Музыкальная дойка" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <i class="ph-fill ph-music-notes" style="display:none"></i>
+          <img src="img/slide_music.png" alt="Музыкальная дойка">
         </div>
         <div class="why-card-body">
           <div class="why-num">02</div>
@@ -66,8 +63,7 @@
       </div>
       <div class="why-card">
         <div class="why-card-img">
-          <img src="img/why3.jpg" alt="Доставка" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <i class="ph-fill ph-truck" style="display:none"></i>
+          <img src="img/slide_bottling.png" alt="Доставка">
         </div>
         <div class="why-card-body">
           <div class="why-num">03</div>
@@ -78,11 +74,10 @@
     </div>
   </div>
 
-  <!-- WHAT SETS APART -->
+  <!-- APART -->
   <div class="section" style="padding-top: 0;">
     <div class="apart-grid">
       <div class="apart-left">
-        <p class="section-label">Наши принципы</p>
         <h2>Что нас отличает</h2>
         <p>Натуральное производство без компромиссов — так работает наша ферма с 1998 года.</p>
       </div>
@@ -126,10 +121,10 @@
     </div>
   </div>
 
-  <!-- SLIDER — жизнь на ферме -->
+  <!-- SLIDER -->
   <div class="section" style="padding-top: 0;">
     <div class="trusted-header">
-      <h2 class="section-title">Жизнь на ферме <span class="section-title-muted">— каждый день</span></h2>
+      <h2 class="section-title">Жизнь на ферме <span class="section-title-muted">каждый день</span></h2>
       <div class="slider-nav">
         <button class="btn btn-outline btn-circle" id="prev-slide"><i class="ph ph-arrow-left"></i></button>
         <button class="btn btn-dark btn-circle" id="next-slide"><i class="ph ph-arrow-right"></i></button>
@@ -138,32 +133,28 @@
     <div class="slider-container">
       <div class="slider-track">
         <div class="slide">
-          <img src="img/slide1.jpg" alt="Утро на ферме" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="slide-placeholder" style="display:none"><i class="ph-fill ph-sun"></i></div>
+          <img src="img/slide_morning.png" alt="Утро на ферме">
           <div class="slide-overlay">
             <span class="slide-tag">Утро</span>
             <p>Рассвет на ферме — тишина перед первой дойкой</p>
           </div>
         </div>
         <div class="slide">
-          <img src="img/slide2.jpg" alt="Дойка" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="slide-placeholder" style="display:none"><i class="ph-fill ph-music-notes"></i></div>
+          <img src="img/slide_music.png" alt="Дойка">
           <div class="slide-overlay">
             <span class="slide-tag">Музыка</span>
             <p>Зорька слушает Вивальди. Удой вырос на 12%</p>
           </div>
         </div>
         <div class="slide">
-          <img src="img/slide3.jpg" alt="Молоко" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="slide-placeholder" style="display:none"><i class="ph-fill ph-jar"></i></div>
+          <img src="img/slide_bottling.png" alt="Молоко">
           <div class="slide-overlay">
             <span class="slide-tag">Производство</span>
             <p>Молоко разливается по бутылям каждое утро в 6:00</p>
           </div>
         </div>
         <div class="slide">
-          <img src="img/slide4.jpg" alt="Творог" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="slide-placeholder" style="display:none"><i class="ph-fill ph-clock"></i></div>
+          <img src="img/slide_cellar.png" alt="Творог">
           <div class="slide-overlay">
             <span class="slide-tag">Погреб</span>
             <p>Творог созревает 12 часов — никакой спешки</p>
@@ -179,24 +170,50 @@
       <div class="counters">
         <div class="counter-item">
           <i class="ph-fill ph-cow"></i>
-          <div class="counter-num" data-target="47" data-suffix="">0</div>
+          <div class="counter-num" data-target="47">0</div>
           <div class="counter-label">Коров на ферме</div>
         </div>
         <div class="counter-item">
           <i class="ph-fill ph-calendar"></i>
-          <div class="counter-num" data-target="26" data-suffix="">0</div>
+          <div class="counter-num" data-target="26">0</div>
           <div class="counter-label">Лет работаем</div>
         </div>
         <div class="counter-item">
           <i class="ph-fill ph-drop"></i>
-          <div class="counter-num" data-target="1200" data-suffix="">0</div>
+          <div class="counter-num" data-target="1200">0</div>
           <div class="counter-label">Литров молока в день</div>
         </div>
         <div class="counter-item">
           <i class="ph-fill ph-smiley"></i>
-          <div class="counter-num" data-target="340" data-suffix="">0</div>
+          <div class="counter-num" data-target="340">0</div>
           <div class="counter-label">Довольных клиентов</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUEST BLOCK -->
+  <div class="section" style="padding-top: 0;">
+    <div class="request-block">
+      <div class="request-left">
+        <h2>Оставить заявку на продукты</h2>
+        <p>Укажите что вас интересует и как с вами связаться. Ответим в течение дня и согласуем доставку.</p>
+      </div>
+      <div class="request-right">
+        <form class="request-form" id="request-form" novalidate>
+          <input type="text" id="req-name" class="request-input" placeholder="Ваше имя" />
+          <div class="request-error" id="req-err-name"></div>
+          <input type="text" id="req-product" class="request-input" placeholder="Какой продукт интересует?" />
+          <div class="request-error" id="req-err-product"></div>
+          <input type="email" id="req-email" class="request-input" placeholder="Email или телефон" />
+          <div class="request-error" id="req-err-email"></div>
+          <button type="submit" class="btn btn-dark" style="width:100%; justify-content:center;">
+            Отправить заявку <i class="ph ph-arrow-right"></i>
+          </button>
+          <div class="request-success" id="request-success">
+            <i class="ph-fill ph-check-circle"></i> Заявка принята! Свяжемся с вами сегодня.
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -1,3 +1,11 @@
+// === HEADER SCROLL ===
+const header = document.getElementById('main-header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+}
+
 // === BACK TO TOP ===
 const backToTopBtn = document.getElementById('back-to-top');
 if (backToTopBtn) {
@@ -17,24 +25,30 @@ if (sliderTrack) {
   const total = slides.length;
 
   function getVisible() {
-    return window.innerWidth <= 768 ? 1 : 3;
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
   }
 
   function goToSlide(n) {
     const visible = getVisible();
-    const max = total - visible;
+    const max = Math.max(0, total - visible);
     current = Math.max(0, Math.min(n, max));
-    const slideWidth = slides[0].offsetWidth + 16;
+    const gap = 16;
+    const slideWidth = slides[0].offsetWidth + gap;
     sliderTrack.style.transform = `translateX(-${current * slideWidth}px)`;
   }
 
   document.getElementById('prev-slide')?.addEventListener('click', () => goToSlide(current - 1));
-  document.getElementById('next-slide')?.addEventListener('click', () => goToSlide(current + 1));
+  document.getElementById('next-slide')?.addEventListener('click', () => {
+    const visible = getVisible();
+    goToSlide(current + 1 >= total - visible + 1 ? 0 : current + 1);
+  });
 
   setInterval(() => {
     const visible = getVisible();
-    goToSlide(current + 1 > total - visible ? 0 : current + 1);
-  }, 4000);
+    goToSlide(current + 1 >= total - visible + 1 ? 0 : current + 1);
+  }, 4500);
 }
 
 // === COUNTER ANIMATION ===
@@ -44,10 +58,10 @@ function animateCounter(el, target, duration = 1500) {
   const timer = setInterval(() => {
     start += step;
     if (start >= target) {
-      el.textContent = target + (el.dataset.suffix || '');
+      el.textContent = target;
       clearInterval(timer);
     } else {
-      el.textContent = Math.floor(start) + (el.dataset.suffix || '');
+      el.textContent = Math.floor(start);
     }
   }, 16);
 }
@@ -55,22 +69,19 @@ function animateCounter(el, target, duration = 1500) {
 const counterSection = document.querySelector('.counter-wrap');
 if (counterSection) {
   let animated = false;
-  const observer = new IntersectionObserver((entries) => {
+  new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !animated) {
       animated = true;
       document.querySelectorAll('.counter-num').forEach(el => {
         animateCounter(el, parseInt(el.dataset.target), 1500);
       });
     }
-  }, { threshold: 0.4 });
-  observer.observe(counterSection);
+  }, { threshold: 0.4 }).observe(counterSection);
 }
 
 // === ORDER MODAL ===
 const modal = document.getElementById('order-modal');
 const modalProductName = document.getElementById('modal-product-name');
-const modalClose = document.getElementById('modal-close');
-const modalConfirm = document.getElementById('modal-confirm');
 
 document.querySelectorAll('.order-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -79,33 +90,66 @@ document.querySelectorAll('.order-btn').forEach(btn => {
   });
 });
 
-modalClose?.addEventListener('click', () => modal?.classList.remove('active'));
-modalConfirm?.addEventListener('click', () => {
+document.getElementById('modal-close')?.addEventListener('click', () => modal?.classList.remove('active'));
+document.getElementById('modal-confirm')?.addEventListener('click', () => {
   modal?.classList.remove('active');
   showToast('Заказ принят! Мы свяжемся с вами.');
 });
-modal?.addEventListener('click', (e) => {
-  if (e.target === modal) modal.classList.remove('active');
-});
+modal?.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
 
 // === TOAST ===
 function showToast(message) {
   const toast = document.createElement('div');
   toast.textContent = message;
   toast.style.cssText = `
-    position: fixed; bottom: 5rem; right: 2rem;
-    background: #0d0d0d; color: white;
-    padding: 0.9rem 1.5rem; border-radius: 100px;
-    font-size: 0.9rem; z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    animation: slideIn 0.3s ease;
-    font-family: inherit;
+    position:fixed;bottom:5rem;right:2rem;
+    background:#0d0d0d;color:white;
+    padding:0.8rem 1.4rem;border-radius:100px;
+    font-size:0.875rem;z-index:1000;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+    animation:slideIn 0.3s ease;
+    font-family:'Inter',sans-serif;
   `;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 3000);
 }
 
-// === FORM VALIDATION ===
+// === REQUEST FORM (главная) ===
+const requestForm = document.getElementById('request-form');
+if (requestForm) {
+  requestForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    const fields = [
+      { input: document.getElementById('req-name'), err: document.getElementById('req-err-name'), msg: 'Введите имя' },
+      { input: document.getElementById('req-product'), err: document.getElementById('req-err-product'), msg: 'Укажите продукт' },
+      { input: document.getElementById('req-email'), err: document.getElementById('req-err-email'), msg: 'Введите email или телефон' },
+    ];
+
+    fields.forEach(({ input, err }) => {
+      input?.classList.remove('error');
+      if (err) err.style.display = 'none';
+    });
+
+    fields.forEach(({ input, err, msg }) => {
+      if (!input?.value.trim()) {
+        input?.classList.add('error');
+        if (err) { err.textContent = msg; err.style.display = 'block'; }
+        valid = false;
+      }
+    });
+
+    if (valid) {
+      requestForm.reset();
+      const success = document.getElementById('request-success');
+      if (success) { success.style.display = 'flex'; }
+      setTimeout(() => { if (success) success.style.display = 'none'; }, 4000);
+    }
+  });
+}
+
+// === CONTACT FORM (новости) ===
 const subscribeForm = document.getElementById('subscribe-form');
 if (subscribeForm) {
   subscribeForm.addEventListener('submit', (e) => {
@@ -119,7 +163,6 @@ if (subscribeForm) {
     const errEmail = document.getElementById('err-email');
     const errMsg = document.getElementById('err-msg');
 
-    // Reset
     [nameInput, emailInput, msgInput].forEach(i => i?.classList.remove('error'));
     [errName, errEmail, errMsg].forEach(e => { if(e) e.style.display = 'none'; });
 
@@ -156,10 +199,8 @@ const clockEl = document.getElementById('farm-clock');
 if (clockEl) {
   function updateClock() {
     const now = new Date();
-    const h = String(now.getHours()).padStart(2, '0');
-    const m = String(now.getMinutes()).padStart(2, '0');
-    const s = String(now.getSeconds()).padStart(2, '0');
-    clockEl.textContent = `${h}:${m}:${s}`;
+    clockEl.textContent = [now.getHours(), now.getMinutes(), now.getSeconds()]
+      .map(n => String(n).padStart(2, '0')).join(':');
   }
   updateClock();
   setInterval(updateClock, 1000);

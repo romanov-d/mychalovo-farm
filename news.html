@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<header>
+<header id="main-header" class="scrolled">
   <div class="header-inner">
     <a href="index.html" class="logo"><i class="ph-fill ph-cow"></i> Мычалово</a>
     <nav>
@@ -21,10 +21,9 @@
   </div>
 </header>
 
-<main>
+<main style="padding-top: 5rem;">
   <div class="section">
-    <p class="section-label">Новости</p>
-    <h1 class="section-title">Жизнь фермы</h1>
+    <h1 class="section-title">Новости фермы</h1>
     <p class="section-subtitle">Рассказываем о коровах, урожае и музыкальных предпочтениях Зорьки</p>
 
     <!-- CLOCK -->
@@ -35,21 +34,31 @@
 
     <!-- NEWS GRID -->
     <div class="news-grid">
-      <div class="news-card">
-        <div class="news-date">12 декабря 2024</div>
-        <h3><i class="ph-fill ph-music-notes"></i> Зорька полюбила Шопена</h3>
-        <p>После смены плейлиста на фортепианные ноктюрны Шопена надои Зорьки выросли на 8%. Ветеринар в недоумении, но доволен. Теперь по вечерам — только Шопен.</p>
+      <div class="news-img-card">
+        <img src="img/news_chopin.png" alt="Шопен">
+        <div class="news-img-overlay">
+          <div class="news-date">12 декабря 2024</div>
+          <h3><i class="ph-fill ph-music-notes"></i> Зорька полюбила Шопена</h3>
+        </div>
       </div>
-      <div class="news-card">
-        <div class="news-date">5 декабря 2024</div>
-        <h3><i class="ph-fill ph-cow"></i> Пополнение в стаде!</h3>
-        <p>На ферме родился телёнок. Назвали Бетховен — в честь великого композитора. Мама и малыш чувствуют себя отлично. Принимаем поздравления.</p>
+      <div class="news-img-card">
+        <img src="img/news_calf.png" alt="Телёнок">
+        <div class="news-img-overlay">
+          <div class="news-date">5 декабря 2024</div>
+          <h3><i class="ph-fill ph-cow"></i> Пополнение в стаде!</h3>
+        </div>
       </div>
-      <div class="news-card">
-        <div class="news-date">28 ноября 2024</div>
-        <h3><i class="ph-fill ph-trophy"></i> Победа на областной ярмарке</h3>
-        <p>Наш творог занял первое место в категории «Домашние молочные продукты». Судьи спросили про секрет — мы рассказали про музыку.</p>
+      <div class="news-img-card">
+        <img src="img/news_fair.png" alt="Ярмарка">
+        <div class="news-img-overlay">
+          <div class="news-date">28 ноября 2024</div>
+          <h3><i class="ph-fill ph-trophy"></i> Победа на областной ярмарке</h3>
+        </div>
       </div>
+    </div>
+
+    <!-- TEXT NEWS -->
+    <div class="news-grid" style="margin-top: 1.5rem;">
       <div class="news-card">
         <div class="news-date">15 ноября 2024</div>
         <h3><i class="ph-fill ph-snowflake"></i> Зима на носу — готовимся</h3>
@@ -58,7 +67,7 @@
       <div class="news-card">
         <div class="news-date">3 ноября 2024</div>
         <h3><i class="ph-fill ph-jar"></i> Новинка: сливки 33%</h3>
-        <p>По многочисленным просьбам запускаем сливки для взбивания. Жирность 33%, вкус — как в детстве у бабушки. Доступны для заказа с 10 ноября.</p>
+        <p>По многочисленным просьбам запускаем сливки для взбивания. Жирность 33%, вкус — как в детстве у бабушки. Доступны с 10 ноября.</p>
       </div>
       <div class="news-card">
         <div class="news-date">20 октября 2024</div>
@@ -69,9 +78,9 @@
   </div>
 </main>
 
-<!-- FORM — тёмный блок с фото фона -->
+<!-- FORM -->
 <div class="form-section-wrap">
-  <img src="img/field.jpg" alt="Поле" class="form-bg" onerror="this.style.display='none'">
+  <img src="img/slide_morning.png" alt="Поле" class="form-bg">
   <div class="form-section-inner">
     <h2>Напишите нам</h2>
     <form id="subscribe-form" novalidate>
@@ -81,7 +90,7 @@
       <div class="form-error" id="err-email"></div>
       <textarea id="sub-message" class="form-field" rows="4" placeholder="Хочу заказать молоко каждую пятницу..."></textarea>
       <div class="form-error" id="err-msg"></div>
-      <button type="submit" class="btn btn-white" style="width: 100%; justify-content: center;">
+      <button type="submit" class="btn btn-white" style="width:100%; justify-content:center;">
         Отправить <i class="ph ph-paper-plane-tilt"></i>
       </button>
       <div class="form-success" id="form-success">
