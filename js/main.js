@@ -1,4 +1,4 @@
-// === HEADER SCROLL ===
+// хедер на главной: при скролле становится матовым
 const header = document.getElementById('main-header');
 if (header && header.classList.contains('hero-page')) {
   window.addEventListener('scroll', () => {
@@ -6,7 +6,7 @@ if (header && header.classList.contains('hero-page')) {
   });
 }
 
-// === BACK TO TOP ===
+// кнопка "наверх" — показываем когда проскроллили достаточно
 const backToTopBtn = document.getElementById('back-to-top');
 if (backToTopBtn) {
   window.addEventListener('scroll', () => {
@@ -17,13 +17,14 @@ if (backToTopBtn) {
   });
 }
 
-// === SLIDER ===
+// слайдер с автопрокруткой
 const sliderTrack = document.querySelector('.slider-track');
 if (sliderTrack) {
   const slides = sliderTrack.querySelectorAll('.slide');
   let current = 0;
   const total = slides.length;
 
+  // сколько слайдов показываем зависит от ширины экрана
   function getVisible() {
     if (window.innerWidth <= 600) return 1;
     if (window.innerWidth <= 900) return 2;
@@ -45,13 +46,14 @@ if (sliderTrack) {
     goToSlide(current + 1 >= total - visible + 1 ? 0 : current + 1);
   });
 
+  // автоматически листаем каждые 4.5 секунды
   setInterval(() => {
     const visible = getVisible();
     goToSlide(current + 1 >= total - visible + 1 ? 0 : current + 1);
   }, 4500);
 }
 
-// === COUNTER ANIMATION ===
+// анимация счётчиков — плавно считаем от 0 до нужного числа
 function animateCounter(el, target, duration = 1500) {
   let start = 0;
   const step = target / (duration / 16);
@@ -66,6 +68,7 @@ function animateCounter(el, target, duration = 1500) {
   }, 16);
 }
 
+// запускаем счётчики только когда блок появился на экране
 const counterSection = document.querySelector('.counter-wrap');
 if (counterSection) {
   let animated = false;
@@ -79,7 +82,7 @@ if (counterSection) {
   }, { threshold: 0.4 }).observe(counterSection);
 }
 
-// === ORDER MODAL ===
+// открываем модалку при клике на кнопку заказа
 const modal = document.getElementById('order-modal');
 const modalProductName = document.getElementById('modal-product-name');
 
@@ -90,6 +93,7 @@ document.querySelectorAll('.order-btn').forEach(btn => {
   });
 });
 
+// закрываем модалку — по кнопке или по клику на фон
 document.getElementById('modal-close')?.addEventListener('click', () => modal?.classList.remove('active'));
 document.getElementById('modal-confirm')?.addEventListener('click', () => {
   modal?.classList.remove('active');
@@ -97,7 +101,7 @@ document.getElementById('modal-confirm')?.addEventListener('click', () => {
 });
 modal?.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
 
-// === TOAST ===
+// всплывающее уведомление внизу экрана
 function showToast(message) {
   const toast = document.createElement('div');
   toast.textContent = message;
@@ -114,7 +118,7 @@ function showToast(message) {
   setTimeout(() => toast.remove(), 3000);
 }
 
-// === REQUEST FORM (главная) ===
+// форма заявки на главной — проверяем что поля не пустые
 const requestForm = document.getElementById('request-form');
 if (requestForm) {
   requestForm.addEventListener('submit', (e) => {
@@ -127,11 +131,13 @@ if (requestForm) {
       { input: document.getElementById('req-email'), err: document.getElementById('req-err-email'), msg: 'Введите email или телефон' },
     ];
 
+    // сначала убираем старые ошибки
     fields.forEach(({ input, err }) => {
       input?.classList.remove('error');
       if (err) err.style.display = 'none';
     });
 
+    // потом проверяем каждое поле
     fields.forEach(({ input, err, msg }) => {
       if (!input?.value.trim()) {
         input?.classList.add('error');
@@ -149,7 +155,7 @@ if (requestForm) {
   });
 }
 
-// === CONTACT FORM (новости) ===
+// форма обратной связи на странице новостей
 const subscribeForm = document.getElementById('subscribe-form');
 if (subscribeForm) {
   subscribeForm.addEventListener('submit', (e) => {
@@ -163,6 +169,7 @@ if (subscribeForm) {
     const errEmail = document.getElementById('err-email');
     const errMsg = document.getElementById('err-msg');
 
+    // сбрасываем ошибки
     [nameInput, emailInput, msgInput].forEach(i => i?.classList.remove('error'));
     [errName, errEmail, errMsg].forEach(e => { if(e) e.style.display = 'none'; });
 
@@ -172,6 +179,7 @@ if (subscribeForm) {
       valid = false;
     }
 
+    // проверяем email через регулярное выражение
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailInput?.value.trim() || !emailRegex.test(emailInput.value)) {
       emailInput?.classList.add('error');
@@ -194,7 +202,7 @@ if (subscribeForm) {
   });
 }
 
-// === LIVE CLOCK ===
+// часы на странице новостей — обновляем каждую секунду
 const clockEl = document.getElementById('farm-clock');
 if (clockEl) {
   function updateClock() {
