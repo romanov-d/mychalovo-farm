@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Новости — Ферма «Мычалово»</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span>🐄</span> Ферма «Мычалово»</a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="products.html">Продукты</a>
+      <a href="news.html" class="active">Новости</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="section">
+    <h1 class="section-title">Новости фермы</h1>
+    <p class="section-subtitle">Здесь мы рассказываем о жизни коров, урожае и музыкальных предпочтениях Зорьки</p>
+
+    <!-- CLOCK -->
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <div style="background: var(--green); color: white; display: inline-block; padding: 1rem 2.5rem; border-radius: 12px; font-size: 2.5rem; font-family: monospace; letter-spacing: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+        <span id="farm-clock">00:00:00</span>
+      </div>
+      <div style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Текущее время на ферме</div>
+    </div>
+
+    <!-- NEWS GRID -->
+    <div class="news-grid">
+
+      <div class="news-card">
+        <div class="news-date">12 декабря 2024</div>
+        <h3>🎵 Зорька полюбила Шопена</h3>
+        <p>После смены плейлиста на фортепианные ноктюрны Шопена, надои Зорьки выросли на 8%. Ветеринар в недоумении, но доволен. Теперь по вечерам — только Шопен.</p>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">5 декабря 2024</div>
+        <h3>🐮 Пополнение в стаде!</h3>
+        <p>На ферме родился телёнок. Назвали Бетховен — в честь великого композитора. Мама и малыш чувствуют себя отлично. Принимаем поздравления.</p>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">28 ноября 2024</div>
+        <h3>🏆 Победа на областной ярмарке</h3>
+        <p>Наш творог занял первое место в категории «Домашние молочные продукты» на областной ярмарке. Судьи отметили необычный вкус и спросили про секрет — мы рассказали про музыку.</p>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">15 ноября 2024</div>
+        <h3>🌡️ Зима на носу — готовимся</h3>
+        <p>Утеплили коровник, закупили дополнительные тюки сена. Поставили второй динамик — чтобы Моцарт был слышен в дальнем стойле. Коровам комфортно.</p>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">3 ноября 2024</div>
+        <h3>🥛 Новинка: сливки 33%</h3>
+        <p>По многочисленным просьбам запускаем сливки для взбивания. Жирность 33%, вкус — как в детстве у бабушки. Доступны для заказа с 10 ноября.</p>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">20 октября 2024</div>
+        <h3>🎸 Эксперимент с рок-музыкой провалился</h3>
+        <p>Мы попробовали включить AC/DC в обеденное время. Дашка начала нервно мычать, Зорька уронила подойник. Вернулись к классике. Рок — не для коров.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="section" style="padding-top: 0;">
+    <div class="form-section">
+      <h2>✉️ Напишите нам</h2>
+      <p style="text-align:center; color:#888; margin-bottom: 1.5rem; font-size: 0.9rem;">
+        Вопросы, заказы, предложения — пишите. Отвечаем быстро (пока не пошли кормить коров).
+      </p>
+      <form id="subscribe-form" novalidate>
+        <div class="form-group">
+          <label for="sub-name">Ваше имя</label>
+          <input type="text" id="sub-name" placeholder="Иван Петров" />
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="sub-email">Email</label>
+          <input type="email" id="sub-email" placeholder="ivan@example.com" />
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="sub-message">Сообщение</label>
+          <textarea id="sub-message" rows="4" placeholder="Хочу заказать молоко каждую пятницу..."></textarea>
+          <div class="form-error"></div>
+        </div>
+        <button type="submit" class="btn btn-green" style="width: 100%;">Отправить</button>
+        <div class="form-success" id="form-success">
+          ✅ Сообщение отправлено! Ответим в течение дня.
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>🐄 Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</p>
+</footer>
+
+<button id="back-to-top" title="Наверх">↑</button>
+
+<style>
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+</style>
+<script src="js/main.js"></script>
+</body>
+</html>

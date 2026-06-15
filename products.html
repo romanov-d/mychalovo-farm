@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Продукты — Ферма «Мычалово»</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span>🐄</span> Ферма «Мычалово»</a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="products.html" class="active">Продукты</a>
+      <a href="news.html">Новости</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="section">
+    <h1 class="section-title">Наши продукты</h1>
+    <p class="section-subtitle">Всё натуральное. Коровы довольны. Вы будете тоже.</p>
+
+    <!-- FILTER -->
+    <div style="text-align:center; margin-bottom: 2rem;">
+      <button class="btn btn-green filter-btn" data-filter="all" style="margin: 0.3rem;">Все</button>
+      <button class="btn filter-btn" data-filter="dairy" style="margin: 0.3rem; background:#f5f0e8;">Молочное</button>
+      <button class="btn filter-btn" data-filter="fermented" style="margin: 0.3rem; background:#f5f0e8;">Кисломолочное</button>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+
+      <div class="product-card" data-category="dairy">
+        <div class="product-img">🥛</div>
+        <div class="product-info">
+          <h3>Молоко цельное</h3>
+          <p>3.7% жирности. Утренняя дойка, пастеризованное. Зорька постаралась.</p>
+          <div class="product-price">65 ₽ / литр</div>
+          <button class="btn btn-green order-btn" data-product="Молоко цельное">Заказать</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="fermented">
+        <div class="product-img">🧀</div>
+        <div class="product-info">
+          <h3>Творог домашний</h3>
+          <p>9% жирности. Созревает 12 часов в погребе. Без консервантов.</p>
+          <div class="product-price">180 ₽ / кг</div>
+          <button class="btn btn-green order-btn" data-product="Творог домашний">Заказать</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="fermented">
+        <div class="product-img">🥄</div>
+        <div class="product-info">
+          <h3>Сметана густая</h3>
+          <p>20% жирности. Такая густая, что ложка стоит. Проверено.</p>
+          <div class="product-price">120 ₽ / 500г</div>
+          <button class="btn btn-green order-btn" data-product="Сметана густая">Заказать</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="dairy">
+        <div class="product-img">🧈</div>
+        <div class="product-info">
+          <h3>Сливочное масло</h3>
+          <p>82.5% жирности. Настоящее сливочное масло, как у бабушки.</p>
+          <div class="product-price">250 ₽ / 200г</div>
+          <button class="btn btn-green order-btn" data-product="Сливочное масло">Заказать</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="fermented">
+        <div class="product-img">🥛</div>
+        <div class="product-info">
+          <h3>Кефир живой</h3>
+          <p>Настоящий живой кефир на молочнокислых бактериях. 3 дня хранения.</p>
+          <div class="product-price">75 ₽ / литр</div>
+          <button class="btn btn-green order-btn" data-product="Кефир живой">Заказать</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="dairy">
+        <div class="product-img">🍦</div>
+        <div class="product-info">
+          <h3>Сливки 33%</h3>
+          <p>Для взбивания, кофе или просто так. Нежные и ароматные.</p>
+          <div class="product-price">160 ₽ / 500мл</div>
+          <button class="btn btn-green order-btn" data-product="Сливки 33%">Заказать</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="order-modal">
+  <div class="modal">
+    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🐄</div>
+    <h2>Подтвердите заказ</h2>
+    <p>Вы заказываете: <strong id="modal-product-name"></strong></p>
+    <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: #888;">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+    <div class="modal-btns">
+      <button class="btn" id="modal-close" style="background: #f0ebe0; color: #555;">Отмена</button>
+      <button class="btn btn-green" id="modal-confirm">Заказать!</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🐄 Ферма «Мычалово» © 2024 — Молоко с музыкой и любовью</p>
+</footer>
+
+<button id="back-to-top" title="Наверх">↑</button>
+
+<style>
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .product-card.hidden {
+    display: none;
+  }
+  .filter-btn.active-filter {
+    background-color: var(--green) !important;
+    color: white !important;
+  }
+</style>
+
+<script src="js/main.js"></script>
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.product-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active-filter'));
+      btn.classList.add('active-filter');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Set first filter as active
+  filterBtns[0].classList.add('active-filter');
+</script>
+</body>
+</html>
