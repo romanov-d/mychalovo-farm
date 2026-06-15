@@ -1,3 +1,24 @@
+// бургер-меню для мобильных
+const burgerBtn = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const burgerIcon = document.getElementById('burger-icon');
+
+if (burgerBtn && mobileMenu) {
+  burgerBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    burgerIcon.className = isOpen ? 'ph ph-x' : 'ph ph-list';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  // закрываем при клике на ссылку
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      burgerIcon.className = 'ph ph-list';
+      document.body.style.overflow = '';
+    });
+  });
+}
+
 // хедер на главной: при скролле становится матовым
 const header = document.getElementById('main-header');
 if (header && header.classList.contains('hero-page')) {
