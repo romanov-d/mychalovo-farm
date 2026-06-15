@@ -1,6 +1,6 @@
 // === HEADER SCROLL ===
 const header = document.getElementById('main-header');
-if (header) {
+if (header && header.classList.contains('hero-page')) {
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 60);
   });
